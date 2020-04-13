@@ -10,30 +10,23 @@ import org.junit.jupiter.api.Test;
 
 class ThreeReelMatchResultHelperTest {
 
-	@Test
-	void testFilterAllWinners() {
-		List<ThreeReelMatchResult> filteredResults = ThreeReelMatchResultHelper.filterAllWinners(createTestData());
+    @Test
+    void testSumUpWinCents() {
+        int totalCents = ThreeReelMatchResultHelper.sumUpWinCents(createTestData());
 
-		assertThat(filteredResults.size(), is(3));
-	}
+        assertThat(totalCents, is(65));
+    }
 
-	@Test
-	void testSumUpWinCents() {
-		int totalCents = ThreeReelMatchResultHelper.sumUpWinCents(createTestData());
+    private static List<ThreeReelMatchResult> createTestData() {
+        List<ThreeReelMatchResult> results = new ArrayList<>();
 
-		assertThat(totalCents, is(65));
-	}
+        results.add(new ThreeReelMatchResult(true, "", 10));
+        results.add(new ThreeReelMatchResult(true, "", 15));
+        results.add(new ThreeReelMatchResult(false, "", 10));
+        results.add(new ThreeReelMatchResult(true, "", 20));
+        results.add(new ThreeReelMatchResult(false, "", 10));
 
-	private static List<ThreeReelMatchResult> createTestData() {
-		List<ThreeReelMatchResult> results = new ArrayList<>();
-
-		results.add(new ThreeReelMatchResult(true, "", 10));
-		results.add(new ThreeReelMatchResult(true, "", 15));
-		results.add(new ThreeReelMatchResult(false, "", 10));
-		results.add(new ThreeReelMatchResult(true, "", 20));
-		results.add(new ThreeReelMatchResult(false, "", 10));
-
-		return results;
-	}
+        return results;
+    }
 
 }

@@ -8,26 +8,28 @@ import lombok.Data;
 @Data
 public class Reel {
 
-	private final Symbol[] reel;
+    private final Symbol[] workReel;
+    private final Symbol[] reel;
 
-	private final int length;
+    private final int length;
 
-	public Reel(Symbol... symbols) {
-		this.reel = concat(symbols, symbols);
-		this.length = symbols.length;
-	}
+    public Reel(Symbol... symbols) {
+        this.reel = symbols;
+        this.workReel = concat(symbols, symbols);
+        this.length = symbols.length;
+    }
 
-	public Reel getReel3FromIndex(int startIndex) {
-		int provedStartIndex = proveIndex(startIndex);
-		return new Reel(copyOfRange(reel, provedStartIndex, provedStartIndex + 3));
-	}
+    public Reel getReel3FromIndex(int startIndex) {
+        int provedStartIndex = proveIndex(startIndex);
+        return new Reel(copyOfRange(workReel, provedStartIndex, provedStartIndex + 3));
+    }
 
-	public boolean isSymoblAtIndex(Symbol symbol, int index) {
-		return reel[proveIndex(index)] == symbol;
-	}
+    public boolean isSymoblAtIndex(Symbol symbol, int index) {
+        return workReel[proveIndex(index)] == symbol;
+    }
 
-	private int proveIndex(int index) {
-		return index % length;
-	}
+    private int proveIndex(int index) {
+        return index % length;
+    }
 
 }

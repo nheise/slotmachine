@@ -6,7 +6,7 @@ In the project directory, you can build:
 
 and run:
 
-`java -jar target/scrum-0.0.1-SNAPSHOT.jar`
+`java -jar target/slotmachine-0.0.1-SNAPSHOT.jar`
 
 Runs the app in the development mode.<br />
 [http://localhost:8080](http://localhost:8080).
@@ -18,4 +18,4 @@ All available endpoints.
 
 ### Slotmachine
 
-POST /slotmachine/pull<br />
+POST /pull<br />
