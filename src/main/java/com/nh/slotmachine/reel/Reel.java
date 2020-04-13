@@ -1,8 +1,7 @@
 package com.nh.slotmachine.reel;
 
+import static com.nh.slotmachine.util.ArrayUtil.concat;
 import static java.util.Arrays.copyOfRange;
-
-import java.util.Arrays;
 
 import lombok.Data;
 
@@ -27,18 +26,8 @@ public class Reel {
 		return reel[proveIndex(index)] == symbol;
 	}
 
-	public static Reel create(Symbol... symbols) {
-		return new Reel(symbols);
-	}
-
 	private int proveIndex(int index) {
 		return index % length;
-	}
-
-	public static <T> T[] concat(T[] first, T[] second) {
-		T[] result = Arrays.copyOf(first, first.length + second.length);
-		System.arraycopy(second, 0, result, first.length, second.length);
-		return result;
 	}
 
 }
